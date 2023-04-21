@@ -3,6 +3,9 @@ import fs from 'fs';
 const file = './db/data.json';
 
 const saveData = (data) => {
+  if (!fs.existsSync('./db')) {
+    fs.mkdirSync('./db');
+  }
   fs.writeFileSync(file, JSON.stringify(data));
 };
 
